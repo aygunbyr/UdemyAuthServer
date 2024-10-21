@@ -1,21 +1,24 @@
-﻿using System.Collections.Generic;
-using System.Linq.Expressions;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using SharedLibrary.Dtos;
 using System;
-using SharedLibrary.Dtos;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace UdemyAuthServer.Core.Services
 {
-    public interface IServiceGeneric<TEntity, TDto> 
-        where TEntity : class 
-        where TDto : class
+    public interface IServiceGeneric<TEntity, TDto> where TEntity : class where TDto : class
     {
         Task<Response<TDto>> GetByIdAsync(int id);
-        Task<Response<IEnumerable<TEntity>>> GetAllAsync();
+
+        Task<Response<IEnumerable<TDto>>> GetAllAsync();
+
         Task<Response<IEnumerable<TDto>>> Where(Expression<Func<TEntity, bool>> predicate);
-        Task<Response<TDto>> AddAsync(TEntity entity);
-        Task<Response<NoDataDto>> Remove(TEntity entity);
-        Task<Response<NoDataDto>> Update(TEntity entity);
+
+        Task<Response<TDto>> AddAsync(TDto entity);
+
+        Task<Response<NoDataDto>> Remove(int id);
+
+        Task<Response<NoDataDto>> Update(TDto entity, int id);
     }
 }

@@ -1,0 +1,382 @@
+{
+	"info": {
+		"_postman_id": "9c09cae5-6e9e-43ca-bfae-6c4c2fc8e06a",
+		"name": "UdemyAuthServer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28578657"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userName\": \"fcakiroglu\",\r\n    \"email\": \"f-cakiroglu@outlook.com\",\r\n    \"password\": \"Password12*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44316/api/user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44316",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44316/api/user",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44316",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "User endpoints"
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Create Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"f-cakiroglu@outlook.com\",\r\n    \"password\": \"Password12*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44316/api/auth/createtoken",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44316",
+							"path": [
+								"api",
+								"auth",
+								"createtoken"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Token by Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"iMj1Jink9NKmLAcwcRVqH9Ej/BMoFA97xTWsOE60dWc=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44316/api/auth/CreateTokenByRefreshToken",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44316",
+							"path": [
+								"api",
+								"auth",
+								"CreateTokenByRefreshToken"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Revoke Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"6QJtEGYtd3/gqtp7apTSZgTpK3TjQMr5CKV6I13cBxY=\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44316/api/auth/RevokeRefreshToken",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44316",
+							"path": [
+								"api",
+								"auth",
+								"RevokeRefreshToken"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Token by Client",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44316/api/Auth/CreateTokenByClient",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44316",
+							"path": [
+								"api",
+								"Auth",
+								"CreateTokenByClient"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Authentication endpoints"
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44316/api/product",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44316",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Defter\",\r\n    \"price\": 300,\r\n    \"userId\": \"d4d01ca1-28d4-4f84-a14e-7f4747585bda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44316/api/product",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44316",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"Defter Yeni\",\r\n    \"price\": 500,\r\n    \"userId\": \"d4d01ca1-28d4-4f84-a14e-7f4747585bda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44316/api/product",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44316",
+							"path": [
+								"api",
+								"product"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Product endpoints"
+		},
+		{
+			"name": "MiniApp1.API",
+			"item": [
+				{
+					"name": "Get Stock",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44383/api/stock",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44383",
+							"path": [
+								"api",
+								"stock"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MiniApp2.API",
+			"item": [
+				{
+					"name": "Get Invoices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44322/api/invoice",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44322",
+							"path": [
+								"api",
+								"invoice"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MiniApp3.API",
+			"item": [
+				{
+					"name": "Weather Forecast",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44321/WeatherForecast",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44321",
+							"path": [
+								"WeatherForecast"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

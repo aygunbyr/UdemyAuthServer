@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniApp2.API", "MiniApp2.AP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiniApp3.API", "MiniApp3.API\MiniApp3.API.csproj", "{F4B55E9F-FA45-48E9-A9CF-C1DC52963F4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedLibrary", "SharedLibrary\SharedLibrary.csproj", "{522F9471-0C50-4BEF-AEF1-D3BB89812F7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedLibrary", "SharedLibrary\SharedLibrary.csproj", "{522F9471-0C50-4BEF-AEF1-D3BB89812F7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationCheck", "WebApplicationCheck\WebApplicationCheck.csproj", "{22A25C21-2392-411E-88CE-4BC423ADA90F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{522F9471-0C50-4BEF-AEF1-D3BB89812F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{522F9471-0C50-4BEF-AEF1-D3BB89812F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{522F9471-0C50-4BEF-AEF1-D3BB89812F7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22A25C21-2392-411E-88CE-4BC423ADA90F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22A25C21-2392-411E-88CE-4BC423ADA90F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22A25C21-2392-411E-88CE-4BC423ADA90F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22A25C21-2392-411E-88CE-4BC423ADA90F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

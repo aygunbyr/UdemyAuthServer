@@ -8,5 +8,6 @@ namespace UdemyAuthServer.Core.Services
     {
         Task<Response<UserAppDto>> CreateUserAsync(CreateUserDto createUserDto);
         Task<Response<UserAppDto>> GetUserByNameAsync(string userName);
+        Task<Response<NoDataDto>> CreateUserRoles(string userName);
     }
 }

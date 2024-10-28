@@ -1,4 +1,5 @@
-﻿using UdemyAuthServer.Core.Configuration;
+﻿using System.Threading.Tasks;
+using UdemyAuthServer.Core.Configuration;
 using UdemyAuthServer.Core.Dtos;
 using UdemyAuthServer.Core.Models;
 
@@ -6,7 +7,7 @@ namespace UdemyAuthServer.Core.Services
 {
     public interface ITokenService
     {
-        TokenDto CreateToken(UserApp userApp);
+        Task<TokenDto> CreateToken(UserApp userApp);
         ClientTokenDto CreateTokenByClient(Client client);
     }
 }

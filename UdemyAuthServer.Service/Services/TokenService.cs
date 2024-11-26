@@ -104,7 +104,7 @@ namespace UdemyAuthServer.Service.Services
                 {
                     HttpOnly = true,
                     Secure = true,
-                    SameSite = SameSiteMode.Strict,
+                    SameSite = SameSiteMode.None,
                     Expires = refreshTokenExpiration
                 });
             }

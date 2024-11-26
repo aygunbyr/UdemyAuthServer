@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using SharedLibrary.Configurations;
@@ -23,10 +24,13 @@ namespace UdemyAuthServer.Service.Services
 
         private readonly CustomTokenOption _tokenOption;
 
-        public TokenService(UserManager<UserApp> userManager, IOptions<CustomTokenOption> options)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public TokenService(UserManager<UserApp> userManager, IOptions<CustomTokenOption> options, IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _tokenOption = options.Value;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         private string CreateRefreshToken()
@@ -83,24 +87,37 @@ namespace UdemyAuthServer.Service.Services
             JwtSecurityToken jwtSecurityToken = new JwtSecurityToken(
                 issuer: _tokenOption.Issuer,
                 expires: accessTokenExpiration,
-                 notBefore: DateTime.Now,
-                 claims: await GetClaims(userApp, _tokenOption.Audience),
-                 signingCredentials: signingCredentials);
+                notBefore: DateTime.Now,
+                claims: await GetClaims(userApp, _tokenOption.Audience),
+                signingCredentials: signingCredentials);
 
             var handler = new JwtSecurityTokenHandler();
-
             var token = handler.WriteToken(jwtSecurityToken);
+
+            var refreshToken = CreateRefreshToken();
+
+            // Refresh token'ı cookie'ye yazmak için geri dönen bir mekanizma sağlayın
+            var httpContext = _httpContextAccessor.HttpContext;
+            if (httpContext != null)
+            {
+                httpContext.Response.Cookies.Append("refreshToken", refreshToken, new CookieOptions
+                {
+                    HttpOnly = true,
+                    Secure = true,
+                    SameSite = SameSiteMode.Strict,
+                    Expires = refreshTokenExpiration
+                });
+            }
 
             var tokenDto = new TokenDto
             {
                 AccessToken = token,
-                RefreshToken = CreateRefreshToken(),
                 AccessTokenExpiration = accessTokenExpiration,
-                RefreshTokenExpiration = refreshTokenExpiration
             };
 
             return tokenDto;
         }
+
 
         public ClientTokenDto CreateTokenByClient(Client client)
         {

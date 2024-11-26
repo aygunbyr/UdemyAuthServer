@@ -31,17 +31,17 @@ namespace UdemyAuthServer.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> RevokeRefreshToken(RefreshTokenDto refreshTokenDto)
+        public async Task<IActionResult> RevokeRefreshToken()
         {
-            var result = await _authenticationService.RevokeRefreshToken(refreshTokenDto.Token);
+            var result = await _authenticationService.RevokeRefreshToken();
 
             return ActionResultInstance(result);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateTokenByRefreshToken(RefreshTokenDto refreshTokenDto)
+        public async Task<IActionResult> CreateTokenByRefreshToken()
         {
-            var result = await _authenticationService.CreateTokenByRefreshToken(refreshTokenDto.Token);
+            var result = await _authenticationService.CreateTokenByRefreshToken();
 
             return ActionResultInstance(result);
         }

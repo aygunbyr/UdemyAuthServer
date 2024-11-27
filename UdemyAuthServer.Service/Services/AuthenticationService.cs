@@ -122,7 +122,7 @@ namespace UdemyAuthServer.Service.Services
 
         private string CreateCookieHeader(string name, string value, DateTime expiration)
         {
-            return $"{name}={value}; Path=/; HttpOnly; Secure; SameSite=None; Expires={{expiration:R}}\";";
+            return $"{name}={value}; Path=/; HttpOnly; Secure; SameSite=None; Expires={expiration:R}";
         }
 
         public Response<ClientTokenDto> CreateTokenByClient(ClientLoginDto clientLoginDto)
